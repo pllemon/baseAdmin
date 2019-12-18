@@ -15,6 +15,8 @@ function getDictList(arr, callback) {
   })
 }
 
+// 对象深拷贝
+
 export default {
   getDictList
 }

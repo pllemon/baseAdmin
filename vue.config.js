@@ -33,8 +33,7 @@ module.exports = {
       '/api':{
         target: targetUrl
       }
-    },
-    after: require('./mock/mock-server.js')
+    }
   },
   configureWebpack: {
     name: name,

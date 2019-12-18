@@ -1,24 +1,28 @@
 @import './variables.scss';
-@import './mixin.scss';
 @import './transition.scss';
 @import './element-ui.scss';
-@import './sidebar.scss';
+@import './flex.scss';
 
-body {
-  height: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-}
 
-label {
-  font-weight: 700;
-}
-
-html {
-  height: 100%;
+html,
+body,
+div,
+p,
+ul,
+li,
+a
+{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body,
+html 
+{
+  position: relative;
+  height: 100%;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
 #app {
@@ -57,9 +61,4 @@ div:focus {
     clear: both;
     height: 0;
   }
-}
-
-// main-container global css
-.app-container {
-  padding: 20px;
 }
