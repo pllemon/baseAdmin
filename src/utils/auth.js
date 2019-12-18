@@ -13,3 +13,27 @@ export function setToken(token) {
 export function removeToken() {
   return Cookies.remove(TokenKey)
 }
+
+export function getLoginStorage() {
+  const username = localStorage.getItem('gdUser') || ''
+  const password = localStorage.getItem('gdPwd') || ''
+  let remember = false
+  if (username) {
+    remember = true
+  }
+  return {
+    username,
+    password,
+    remember
+  }
+}
+
+export function setLoginStorage(mes) {
+  localStorage.setItem('gdUser', mes.username)
+  localStorage.setItem('gdPwd', mes.password)
+}
+
+export function removeLoginStorage() {
+  localStorage.removeItem('gdUser')
+  localStorage.removeItem('gdPwd')
+}

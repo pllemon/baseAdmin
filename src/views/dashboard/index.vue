@@ -13,7 +13,12 @@ export default {
     ...mapGetters([
       'name'
     ])
-  }
+  },
+  created() {
+    this.$common.getDictList(['GUEST_TYPE', 'PLATFORM_PROTOCOL_TYPE'], function(){
+      console.log(9999)
+    })
+  },
 }
 </script>
 

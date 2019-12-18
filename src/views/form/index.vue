@@ -24,10 +24,7 @@
       </el-form-item>
       <el-form-item label="Activity type">
         <el-checkbox-group v-model="form.type">
-          <el-checkbox label="Online activities" name="type" />
-          <el-checkbox label="Promotion activities" name="type" />
-          <el-checkbox label="Offline activities" name="type" />
-          <el-checkbox label="Simple brand exposure" name="type" />
+          <el-checkbox v-for="(item, index) in $store.state.dict.GUEST_TYPE" :key="index" :label="item.label" name="type" />
         </el-checkbox-group>
       </el-form-item>
       <el-form-item label="Resources">
@@ -44,6 +41,8 @@
         <el-button @click="onCancel">Cancel</el-button>
       </el-form-item>
     </el-form>
+
+    <p v-for="(item, index) in $store.state.dict.GUEST_TYPE" :key="index">{{item.label}}</p>
   </div>
 </template>
 
@@ -59,9 +58,18 @@ export default {
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
-      }
+        desc: '',
+      },
+      finish: false
     }
+  },
+  created() {
+    let that = this
+    this.$common.getDictList(['GUEST_TYPE', 'REGISTER_WAY', 'VISIT_WAY'], function(){
+      console.log(9999)
+      that.finish = true
+      console.log(that.$store.state.dict.GUEST_TYPE)
+    })
   },
   methods: {
     onSubmit() {
