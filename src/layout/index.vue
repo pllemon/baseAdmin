@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper fx-column">
+  <div class="app-wrapper column">
     <TheHeader />
     <div class="app-view fx-1">
       <transition name="fade-transform" mode="out-in">
@@ -27,6 +27,7 @@ export default {
   height: 100%;
   .app-view{
     padding: 20px;
+    overflow: auto;
   }
 }
 </style>

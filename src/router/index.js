@@ -43,6 +43,26 @@ export const constantRoutes = [
     ]
   },
 
+  {
+    path: '/systemManager',
+    name: 'systemManager',
+    component: Layout,
+    children: [
+      {
+        path: 'menuMng',
+        name: 'menuMng',
+        component: () => import('@/views/systemManager/menuMng/index'),
+        meta: { title: '菜单管理' }
+      },
+      {
+        path: 'baseParam',
+        name: 'baseParam',
+        component: () => import('@/views/systemManager/baseParam/index'),
+        meta: { title: '选择项管理' }
+      }
+    ]
+  },
+
   { path: '*', redirect: '/404', hidden: true }
 ]
 

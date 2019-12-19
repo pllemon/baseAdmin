@@ -1,0 +1,20 @@
+// 弹窗
+.el-dialog{
+    margin-bottom: 0;
+    .el-dialog__body{
+        max-height: calc(70vh - 54px - 62px);
+        overflow: auto;
+        min-height: 400px;
+    }
+}
+
+// 搜索表单
+.search-form{
+    .el-form-item{
+        margin-bottom: 5px;
+        .el-input__inner{
+            padding: 0 5px;
+            width: 150px;
+        }
+    }
+}

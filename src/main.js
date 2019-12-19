@@ -15,11 +15,18 @@ import router from './router'
 import '@/icons' // icon
 import '@/permission' // permission control
 
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI)
 
 
 import common from './utils/common.js'
 Vue.prototype.$common = common
+
+import validate from './utils/validate.js'
+Vue.prototype.$validate = validate
+
+
+import ListLayout from '@/layout/list'
+Vue.component('ListLayout', ListLayout)
 
 Vue.config.productionTip = false
 

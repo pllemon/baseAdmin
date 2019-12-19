@@ -1,15 +1,15 @@
 <template>
   <div class="the-header fx-cb">
     <img src="@/assets/logo.png" />
-    <el-menu router mode="horizontal" default-active="$route.path">
+    <el-menu router mode="horizontal" default-active="$route.href">
       <template v-for="(item,index) in menuTrees">
-        <el-menu-item v-if="!item.children" :key="index" :index="item.path">
+        <el-menu-item v-if="!item.children" :key="index" :index="item.href">
           <span>{{ item.name }}</span>
         </el-menu-item>
-        <el-submenu v-else :key="index" :index="item.path">
+        <el-submenu v-else :key="index" :index="item.href">
           <template slot="title">{{item.name}}</template>
-          <el-menu-item v-for="(item2, index2) in item.children" :key="index2" :index="item2.path">
-            {{ item2.name }}
+          <el-menu-item v-for="(item2, index2) in item.children" :key="index2" :index="item2.href">
+            {{ item2.name }}{{ item2.href }}
           </el-menu-item>
         </el-submenu>
       </template>
