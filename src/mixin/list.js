@@ -1,6 +1,13 @@
 // 用于列表页
 import { mapGetters } from 'vuex'
+import ListLayout from '@/layout/list'
+import Pagination from '@/components/Pagination'
+
 export default {
+    components: {
+        ListLayout,
+        Pagination
+    },
     data() {
         return {
             loading: true,
@@ -13,23 +20,42 @@ export default {
             total: 0,
             defaultOrder: 'crtTime_descending',
 
+            chooseIds: [],
+
             currentComponent: '',
             componentMes: {}
         }
-    },
-    created() {
-
     },
     methods: {
         // 获取列表
         getList() {
             this.loading = true
+            for (const i in this.query) {
+                if (this.query[i] == '') {
+                    this.query[i] = undefined
+                }
+            }
             this.api.getList(this.query).then(({ data }) => {
                 this.list = data.rows
                 this.total = data.total
+                this.$nextTick(() => {
+                    this.$refs.table.bodyWrapper.scrollTop = 0
+                })
             }).finally(() => {
                 this.loading = false
             })
+        },
+
+        // 改变每页数量
+        sizeChange(val) {
+            this.query.limit = val
+            this.getList()
+        },
+
+        // 改变页数
+        currentChange(val) {
+            this.query.page = val
+            this.getList()
         },
 
         // 搜索
@@ -39,13 +65,13 @@ export default {
         },
 
         // 重置搜索
-        reset () {
+        reset() {
             if (this.$refs.table) {
                 this.$refs.table.clearFilter()
                 this.$refs.table.clearSort()
             }
-            let specialArr = ['limit'] 
-            for (let i in this.query) {
+            const specialArr = ['limit']
+            for (const i in this.query) {
                 if (i == 'page') {
                     this.query[i] = 1
                 } else if (i == 'orderBy') {
@@ -55,6 +81,52 @@ export default {
                 }
             }
             this.getList()
+        },
+
+        // 表格选择
+        tableSelect(arr) {
+            const chooseIds = arr.map(item => {
+                return item.id
+            })
+            this.chooseIds = chooseIds
+        },
+
+        // 表格排序
+        tableSort(sort) {
+            if (!sort.order) {
+                this.query.orderBy = this.defaultOrder || 'crtTime_descending'
+            } else {
+                this.query.orderBy = sort.prop + '_' + sort.order
+            }
+            this.query.page = 1
+            this.getList()
+        },
+
+        // 表格筛选
+        filterHandler() {
+            return true
+        },
+        tableFilter(filter) {
+            for (const i in filter) {
+                this.query[i] = filter[i][0]
+            }
+            this.query.page = 1
+            this.getList()
+        },
+
+        // 批量操作
+        batchOperate(callback) {
+            if (!this.chooseIds.length) {
+                this.$message({
+                    showClose: true,
+                    message: '请至少选中一项',
+                    type: 'error'
+                })
+                return false
+            }
+            if (callback && this.callback) {
+                this[callback]()
+            }
         },
 
         // 单项删除

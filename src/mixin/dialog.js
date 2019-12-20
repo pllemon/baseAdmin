@@ -1,5 +1,6 @@
 // 用于弹窗页
 import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 export default {
     props: {
         mes: {
@@ -10,8 +11,12 @@ export default {
     data() {
         return {
             loading: false,
+            form: {},
             rules: {}
         }
+    },
+    created() {
+        this.form = this.mes
     },
     methods: {
         cancel() {
@@ -38,6 +43,9 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['elements'])
+        ...mapGetters(['elements']),
+        ...mapState({
+            dict: state => state.dict
+        })
     }
 }

@@ -17,22 +17,20 @@ import '@/permission' // permission control
 
 Vue.use(ElementUI)
 
-
 import common from './utils/common.js'
 Vue.prototype.$common = common
 
 import validate from './utils/validate.js'
 Vue.prototype.$validate = validate
 
-
-import ListLayout from '@/layout/list'
-Vue.component('ListLayout', ListLayout)
+import SelectTree from '@/components/SelectTree'
+Vue.component('SelectTree', SelectTree)
 
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
-  router,
-  store,
-  render: h => h(App)
+    el: '#app',
+    router,
+    store,
+    render: h => h(App)
 })
