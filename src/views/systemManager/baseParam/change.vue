@@ -28,26 +28,19 @@
 </template>
 <script>
 import DialogMixin from '@/mixin/dialog'
+import validate from '@/utils/validate.js'
 import { updateSingle } from '@/api/systemManager/baseParam'
 
 export default {
     mixins: [DialogMixin],
     data() {
         return {
-            form: {
-                'dictCode': '',
-                'dictName': '',
-                'dictItemName': '',
-                'dictItemValue': '',
-                'description': '',
-                'orderNo': undefined,
-                'id': ''
-            },
+            form: {},
             rules: {
-                dictCode: [this.$validate.require()],
-                dictName: [this.$validate.require()],
-                dictItemName: [this.$validate.require()],
-                dictItemValue: [this.$validate.require()]
+                dictCode: [validate.require()],
+                dictName: [validate.require()],
+                dictItemName: [validate.require()],
+                dictItemValue: [validate.require()]
             },
             api: {
                 updateSingle

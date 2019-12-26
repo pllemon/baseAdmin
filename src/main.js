@@ -17,11 +17,20 @@ import '@/permission' // permission control
 
 Vue.use(ElementUI)
 
+// 全局filter
+import * as filters from './utils/filter'
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
+import moment from 'moment'
+Vue.prototype.$moment = moment
+
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+
 import common from './utils/common.js'
 Vue.prototype.$common = common
-
-import validate from './utils/validate.js'
-Vue.prototype.$validate = validate
 
 import SelectTree from '@/components/SelectTree'
 Vue.component('SelectTree', SelectTree)

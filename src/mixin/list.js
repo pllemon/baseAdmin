@@ -1,5 +1,6 @@
 // 用于列表页
 import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import ListLayout from '@/layout/list'
 import Pagination from '@/components/Pagination'
 
@@ -172,6 +173,9 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['elements'])
+        ...mapGetters(['elements']),
+        ...mapState({
+            dict: state => state.dict
+        })
     }
 }

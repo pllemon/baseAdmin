@@ -4,7 +4,7 @@
     <el-menu router mode="horizontal" default-active="$route.href">
       <template v-for="(item,index) in menuTrees">
         <el-menu-item v-if="!item.children" :key="index" :index="item.href">
-          <span>{{ item.name }}</span>
+          {{ item.name }}
         </el-menu-item>
         <el-submenu v-else :key="index" :index="item.href">
           <template slot="title">{{item.name}}</template>

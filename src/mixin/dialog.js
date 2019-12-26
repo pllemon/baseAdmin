@@ -11,12 +11,12 @@ export default {
     data() {
         return {
             loading: false,
-            form: {},
+            form: this.mes,
             rules: {}
         }
     },
     created() {
-        this.form = this.mes
+        this.form = Object.assign({}, this.form, this.mes)
     },
     methods: {
         cancel() {

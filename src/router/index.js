@@ -31,19 +31,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
     path: '/systemManager',
     name: 'systemManager',
     component: Layout,
@@ -55,10 +42,22 @@ export const constantRoutes = [
         meta: { title: '菜单管理' }
       },
       {
+        path: 'roleMng',
+        name: 'roleMng',
+        component: () => import('@/views/systemManager/roleMng/index'),
+        meta: { title: '角色权限管理' }
+      },
+      {
         path: 'baseParam',
         name: 'baseParam',
         component: () => import('@/views/systemManager/baseParam/index'),
         meta: { title: '选择项管理' }
+      },
+      {
+        path: 'userMng',
+        name: 'userMng',
+        component: () => import('@/views/systemManager/userMng/index'),
+        meta: { title: '用户管理' }
       }
     ]
   },

@@ -89,6 +89,7 @@
 </template>
 <script>
 import DialogMixin from '@/mixin/dialog'
+import validate from '@/utils/validate.js'
 import { getList, updateSingle } from '@/api/systemManager/menuMng'
 
 export default {
@@ -97,10 +98,10 @@ export default {
         return {
             treeData: [],
             rules: {
-                dictCode: [this.$validate.require()],
-                dictName: [this.$validate.require()],
-                dictItemName: [this.$validate.require()],
-                dictItemValue: [this.$validate.require()]
+                dictCode: [validate.require()],
+                dictName: [validate.require()],
+                dictItemName: [validate.require()],
+                dictItemValue: [validate.require()]
             },
             api: {
                 updateSingle,
