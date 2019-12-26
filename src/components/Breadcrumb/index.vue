@@ -25,7 +25,7 @@ export default {
   },
   created() {
     this.getBreadcrumb()
-  },
+  }, 
   methods: {
     getBreadcrumb() {
       // only show routes with meta.title

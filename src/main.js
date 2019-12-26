@@ -20,9 +20,10 @@ Vue.use(ElementUI)
 // 全局filter
 import * as filters from './utils/filter'
 Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
+    Vue.filter(key, filters[key])
 })
 
+// 时间库
 import moment from 'moment'
 Vue.prototype.$moment = moment
 

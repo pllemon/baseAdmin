@@ -7,7 +7,7 @@
         :headers="headers"
         :drag="options.drag"
         :accept="accept"
-        :autoUpload="autoUpload"
+        :auto-upload="autoUpload"
         :show-file-list="options.showFileList"
         :list-type="options.listType"
         :file-list="fileList"
@@ -17,26 +17,26 @@
         :on-change="uploadChange"
     >
         <template v-if="type == 1">
-            <i class="el-icon-upload"></i>
+            <i class="el-icon-upload" />
             <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
         </template>
 
         <template v-if="type == 2">
             <img v-if="cover" :src="cover" class="cover">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            <i v-else class="el-icon-plus avatar-uploader-icon" />
         </template>
 
         <template v-if="type == 3">
-            <i slot="default" class="el-icon-plus"></i>
+            <i slot="default" class="el-icon-plus" />
         </template>
 
-        <div v-if="tips" class="el-upload__tip" slot="tip">{{tips}}</div>
+        <div v-if="tips" class="el-upload__tip" slot="tip">{{ tips }}</div>
     </el-upload>
 </template>
 
 <script>
 import { getToken } from '@/utils/auth'
-let defaultOptions = {
+const defaultOptions = {
     1: {
         drag: true,
         showFileList: true,
@@ -109,8 +109,8 @@ export default {
 
         // 文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用
         uploadChange(file, fileList) {
-            let success = fileList.every(item => {
-               return item.status == 'success'
+            const success = fileList.every(item => {
+                return item.status == 'success'
             })
             console.log(success)
             if (success) {
@@ -150,7 +150,7 @@ export default {
                 type: 'error'
             })
             this.$refs.upload.clearFiles()
-        },
+        }
     }
 }
 </script>

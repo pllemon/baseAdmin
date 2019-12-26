@@ -1,3 +1,9 @@
+/*  eslint 规则配置
+    "off" 或者 0 -> 关闭规则
+    "warm" 或者 1 -> 警告
+    "error" 或者 2 -> 错误
+*/
+
 module.exports = {
   root: true,
   parserOptions: {
@@ -13,8 +19,13 @@ module.exports = {
 
   // add your custom rules here
   //it is base on https://github.com/vuejs/eslint-config-vue
+
+    
   rules: {
     "vue/html-indent": [2, 4],
+    'vue/attributes-order': 0, // 属性按顺序排列
+    'vue/order-in-components': 0, // 方法按顺序排序
+    'vue/require-default-prop': 0, // prop必须写默认值
     "vue/max-attributes-per-line": [2, {
       "singleline": 10,
       "multiline": {
@@ -38,7 +49,7 @@ module.exports = {
     'camelcase': [0, {
       'properties': 'always'
     }],
-    'comma-dangle': [2, 'never'],
+    'comma-dangle': [2, 'never'], // 数组和对象不能带末尾的逗号
     'comma-spacing': [2, {
       'before': false,
       'after': true
@@ -48,7 +59,7 @@ module.exports = {
     'curly': [2, 'multi-line'],
     'dot-location': [2, 'property'],
     'eol-last': 2,
-    'eqeqeq': ["error", "always", {"null": "ignore"}],
+    'eqeqeq': [0, "always", {"null": "ignore"}], // 使用 === 替代 ==
     'generator-star-spacing': [2, {
       'before': true,
       'after': true
@@ -133,7 +144,7 @@ module.exports = {
     'no-sparse-arrays': 2,
     'no-this-before-super': 2,
     'no-throw-literal': 2,
-    'no-trailing-spaces': 2,
+    'no-trailing-spaces': 0, // 禁用行尾空格
     'no-undef': 2,
     'no-undef-init': 2,
     'no-unexpected-multiline': 2,

@@ -8,12 +8,12 @@ import dict from './modules/dict'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  modules: {
-    settings,
-    user,
-    dict
-  },
-  getters
+    modules: {
+        settings,
+        user,
+        dict
+    },
+    getters
 })
 
 export default store

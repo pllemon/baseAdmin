@@ -37,7 +37,7 @@
             <el-table-column label="用户名" prop="username" />
             <el-table-column label="姓名" prop="name" />
             <el-table-column label="手机号码" prop="mobilePhone" />
-            <el-table-column 
+            <el-table-column
                 label="状态"
                 prop="status" 
                 column-key="status_EQ_S"
@@ -47,7 +47,7 @@
                 :filter-method="filterHandler"
             >
                 <template slot-scope="scope">
-                {{scope.row.status | getLabel('ENABLE_TYPE')}}
+                    {{ scope.row.status | getLabel('ENABLE_TYPE') }}
                 </template>
             </el-table-column>
             <el-table-column label="创建时间" prop="crtTime" sortable />
