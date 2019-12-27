@@ -1,9 +1,9 @@
-import store from '../store'
+import store from '@/store'
 import { Notification } from 'element-ui'
 
 // 字典获取
 function getDictList(arr, callback) {
-    let dictArr = []
+    const dictArr = []
     arr.forEach(code => {
         if (!store.state.dict[code]) {
             dictArr.push(store.dispatch('dict/getDict', code))
@@ -32,7 +32,7 @@ function deepCopy(obj) {
     var result = Array.isArray(obj) ? [] : {}
     for (var key in obj) {
         if (obj.hasOwnProperty(key)) {
-            if (typeof obj[key] === 'object' && obj[key] !==  null) {
+            if (typeof obj[key] === 'object' && obj[key] !== null) {
                 result[key] = deepCopy(obj[key])
             } else {
                 result[key] = obj[key]
@@ -41,7 +41,6 @@ function deepCopy(obj) {
     }
     return result
 }
-
 
 export default {
     getDictList,

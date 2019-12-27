@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'vue_admin_template_token'
+const TokenKey = 'grgBanking'
 
 export function getToken() {
     return Cookies.get(TokenKey)
@@ -15,8 +15,8 @@ export function removeToken() {
 }
 
 export function getLoginStorage() {
-    const username = localStorage.getItem('gdUser') || ''
-    const password = localStorage.getItem('gdPwd') || ''
+    const username = localStorage.getItem('grgUser') || ''
+    const password = localStorage.getItem('grgPwd') || ''
     let remember = false
     if (username) {
         remember = true
@@ -29,11 +29,11 @@ export function getLoginStorage() {
 }
 
 export function setLoginStorage(mes) {
-    localStorage.setItem('gdUser', mes.username)
-    localStorage.setItem('gdPwd', mes.password)
+    localStorage.setItem('grgUser', mes.username)
+    localStorage.setItem('grgPwd', mes.password)
 }
 
 export function removeLoginStorage() {
-    localStorage.removeItem('gdUser')
-    localStorage.removeItem('gdPwd')
+    localStorage.removeItem('grgUser')
+    localStorage.removeItem('grgPwd')
 }

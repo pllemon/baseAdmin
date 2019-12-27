@@ -4,7 +4,7 @@
             <el-row>
                 <el-col :span="12">
                     <el-form-item label="菜单类型" prop="type">
-                        <el-select  v-model="form.type" filterable placeholder="请选择" clearable>
+                        <el-select v-model="form.type" filterable placeholder="请选择" clearable>
                             <el-option v-for="(item, index) in dict.MENU_TYPE" :key="index" :label="item.label" :value="item.value" />
                         </el-select>
                     </el-form-item>
@@ -45,7 +45,7 @@
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="标识码" prop="icode">
-                        <el-select  v-model="form.icode" filterable placeholder="请选择" clearable>
+                        <el-select v-model="form.icode" filterable placeholder="请选择" clearable>
                             <el-option v-for="(item, index) in dict.ICODE_TYPE" :key="index" :label="item.label" :value="item.value" />
                         </el-select>
                     </el-form-item>
@@ -74,7 +74,7 @@
                 </el-col>
                 <el-col :span="12">
                     <el-form-item label="请求方式" prop="attr2">
-                        <el-select  v-model="form.attr2" filterable placeholder="请选择" clearable>
+                        <el-select v-model="form.attr2" filterable placeholder="请选择" clearable>
                             <el-option v-for="(item, index) in dict.REQUEST_TYPE" :key="index" :label="item.label" :value="item.value" />
                         </el-select>
                     </el-form-item>

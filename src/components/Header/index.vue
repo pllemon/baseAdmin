@@ -1,8 +1,8 @@
 <template>
     <div class="the-header fx-cb">
         <img src="@/assets/logo.png">
-        <el-menu router mode="horizontal" default-active="$route.href">
-            <template v-for="(item,index) in menuTrees">
+        <el-menu router mode="horizontal" default-active="$route.href" v-if="userInfo">
+            <template v-for="(item,index) in userInfo.menuTrees">
                 <el-menu-item v-if="!item.children" :key="index" :index="item.href">
                     {{ item.name }}
                 </el-menu-item>
@@ -14,8 +14,11 @@
                 </el-submenu>
             </template>
         </el-menu>
-        <el-dropdown @command="handleCommand">
-            <span><i class="el-icon-user-solid" />小小花</span>
+        <el-dropdown @command="handleCommand" v-if="userInfo">
+            <span>
+                <i class="el-icon-user-solid" /> 
+                {{ userInfo.username }}
+            </span>
             <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
             </el-dropdown-menu>
@@ -33,12 +36,16 @@ export default {
     },
     computed: {
         ...mapState({
-            menuTrees: state => state.user.userInfo.menuTrees
+            userInfo: state => state.user.userInfo
         })
     },
     methods: {
         handleCommand(val) {
-            console.log(val)
+            this[val]()
+        },
+        loginOut() {
+            this.$store.dispatch('user/logout')
+            this.$router.push(`/login`)
         }
     }
 }

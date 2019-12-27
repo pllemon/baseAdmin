@@ -35,7 +35,7 @@
                 <el-col :span="12">
                     <el-form-item label="状态" prop="status">
                         <el-radio-group v-model="form.status">
-                            <el-radio v-for="(item, index) in dict.ENABLE_TYPE" :key="index" :label="item.value">{{item.label}}</el-radio>
+                            <el-radio v-for="(item, index) in dict.ENABLE_TYPE" :key="index" :label="item.value">{{ item.label }}</el-radio>
                         </el-radio-group>
                     </el-form-item>
                 </el-col>

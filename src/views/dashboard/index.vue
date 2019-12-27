@@ -1,24 +1,17 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
-  </div>
+    <div class="dashboard-container">首页</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
-  name: 'Dashboard',
-  computed: {
-    ...mapGetters([
-      'name'
-    ])
-  },
-  created() {
-    this.$common.getDictList(['GUEST_TYPE', 'PLATFORM_PROTOCOL_TYPE'], function(){
-      console.log(9999)
-    })
-  },
+    created() {
+        this.$common.getDictList(
+            ['GUEST_TYPE', 'PLATFORM_PROTOCOL_TYPE'],
+            function() {
+                console.log(9999)
+            }
+        )
+    }
 }
 </script>
 
