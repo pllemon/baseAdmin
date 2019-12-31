@@ -56,7 +56,7 @@ const defaultOptions = {
 export default {
     name: 'Upload',
     props: {
-        type: { // 上传类型，1-》拖拽文件上传，2-》头像上传, 3-》多图上传
+        type: { // 上传类型，1-》拖拽文件上传，2-》单图上传, 3-》多图上传
             type: [String, Number],
             default: 1
         },
@@ -81,7 +81,7 @@ export default {
             type: String,
             default: ''
         },
-        autoUpload: {
+        autoUpload: { // 自动上传
             type: Boolean,
             default: true
         },
@@ -157,7 +157,7 @@ export default {
 
 <style lang="scss">
 .upload{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     .cover{
         width: 100%;
         height: 100%;

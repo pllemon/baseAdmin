@@ -1,28 +1,22 @@
 import Vue from 'vue'
-
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-
-import '@/styles/index.scss' // global css
-
 import App from './App'
 import store from './store'
 import router from './router'
 
-import '@/icons' // icon
-import '@/utils/permission' // permission control
+import 'normalize.css/normalize.css' // 重置css
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+import '@/styles/index.scss' // 全局css
+
+import '@/icons' // icon组件
+import '@/utils/permission' // 权限控制
+import '@/utils/filter' // 全局filter
 
 Vue.use(ElementUI)
 
-// 全局filter
-import filters from './utils/filter'
-Object.keys(filters).forEach(key => {
-    Vue.filter(key, filters[key])
-})
-
-// 时间库
+// 时间处理库
 import moment from 'moment'
 Vue.prototype.$moment = moment
 

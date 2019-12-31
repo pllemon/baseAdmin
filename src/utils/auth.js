@@ -16,7 +16,7 @@ export function removeToken() {
 }
 
 export function getLoginStorage() {
-    let localData = localStorage.getItem(appKey) ? JSON.parse(localStorage.getItem(appKey)) : {}
+    const localData = localStorage.getItem(appKey) ? JSON.parse(localStorage.getItem(appKey)) : {}
     const username = localData.username
     const password = localData.password
     let remember = false

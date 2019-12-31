@@ -12,6 +12,7 @@ export default {
     data() {
         return {
             loading: true,
+            
             query: {
                 page: 1,
                 limit: 10,

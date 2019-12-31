@@ -29,7 +29,7 @@
             <el-table-column type="index" label="序号" width="50" />
             <el-table-column label="菜单名称" prop="name" />
             <el-table-column label="菜单类型">
-                <template slot-scope="scope"><span>{{scope.row.type}}</span></template>
+                <template slot-scope="scope"><span>{{ scope.row.type }}</span></template>
             </el-table-column>
             <el-table-column label="路径编码" prop="code" />
             <el-table-column label="URL" prop="href" />
@@ -79,6 +79,6 @@ export default {
                 this.loading = false
             })
         }
-    },
+    }
 }
 </script>
