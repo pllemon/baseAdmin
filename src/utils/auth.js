@@ -1,22 +1,24 @@
 import Cookies from 'js-cookie'
+import setting from '@/utils/setting'
 
-const TokenKey = 'grgBanking'
+const appKey = setting.appKey
 
 export function getToken() {
-    return Cookies.get(TokenKey)
+    return Cookies.get(appKey)
 }
 
 export function setToken(token) {
-    return Cookies.set(TokenKey, token)
+    return Cookies.set(appKey, token)
 }
 
 export function removeToken() {
-    return Cookies.remove(TokenKey)
+    return Cookies.remove(appKey)
 }
 
 export function getLoginStorage() {
-    const username = localStorage.getItem('grgUser') || ''
-    const password = localStorage.getItem('grgPwd') || ''
+    let localData = localStorage.getItem(appKey) ? JSON.parse(localStorage.getItem(appKey)) : {}
+    const username = localData.username
+    const password = localData.password
     let remember = false
     if (username) {
         remember = true
@@ -29,11 +31,9 @@ export function getLoginStorage() {
 }
 
 export function setLoginStorage(mes) {
-    localStorage.setItem('grgUser', mes.username)
-    localStorage.setItem('grgPwd', mes.password)
+    localStorage.setItem(appKey, JSON.stringify(mes))
 }
 
 export function removeLoginStorage() {
-    localStorage.removeItem('grgUser')
-    localStorage.removeItem('grgPwd')
+    localStorage.removeItem(appKey)
 }

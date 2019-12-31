@@ -13,8 +13,8 @@ const name = setting.title || '后台管理系统'
 const port = process.env.port || process.env.npm_config_port || 9528
 
 // 请求代理Url
-const targetUrl = 'http://10.2.5.178:9772'
-// const targetUrl = 'http://10.101.34.68:9772'//林惠鑫
+// const targetUrl = 'http://10.2.5.178:9772'
+const targetUrl = 'http://10.101.34.68:9772'//林惠鑫
 
 // 配置说明可参考 https://cli.vuejs.org/config/
 module.exports = {

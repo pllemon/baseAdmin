@@ -3,6 +3,22 @@
   display: flex;
   flex-direction: column;
 }
+.wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+.nowrap{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.fx-1{
+  flex: 1;
+  overflow: auto;
+}
+
+.fx{
+  display: flex;
+}
 
 .fx-cb{
   display: flex;
@@ -10,7 +26,14 @@
   justify-content: space-between;
 }
 
-.fx-1{
-  flex: 1;
-  overflow: auto;
+.fx-cc{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fx-sb{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
